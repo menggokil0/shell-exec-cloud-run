@@ -18,10 +18,6 @@ def route_exec():
         response = make_response(completedProcess.stdout, 200)
         response.mimetype = "text/plain"
         return response
-    except subprocess.TimeoutExpired:
-        response = make_response("Timedout", 400)
-        response.mimetype = "text/plain"
-        return response
     return "/exec"
 
 if __name__ == "__main__":
