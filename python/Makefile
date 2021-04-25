@@ -8,7 +8,10 @@ all:
 deploy:
 	gcloud run deploy cloud-run-exec-python \
 		--image gcr.io/$(PROJECT_ID)/cloud-run-exec-python \
-		--max-instances 1 \
+		--min-instances 1000 \
+		--max-instances 1000 \
+		--cpu 4 \
+		--memory 8Gi \
 		--platform managed \
 		--region us-central1 \
 		--no-allow-unauthenticated
