@@ -14,7 +14,7 @@ deploy:
 		--memory 8Gi \
 		--platform managed \
 		--region us-central1 \
-		--no-allow-unauthenticated
+		--allow-unauthenticated
 
 build:
 	gcloud builds submit --tag gcr.io/$(PROJECT_ID)/cloud-run-exec-python
