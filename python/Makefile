@@ -36,6 +36,9 @@ deploy:
 		--region us-central1 \
 		--allow-unauthenticated
 		--timeout 10m
+	gcloud run services describe cloud-run-exec-python --format='value(status.url)' --region us-central1 --platform managed
+	gcloud run services describe cloud-run-exec-python-2 --format='value(status.url)' --region us-central1 --platform managed
+	gcloud run services describe cloud-run-exec-python-3 --format='value(status.url)' --region us-central1 --platform managed
 
 build:
 	gcloud builds submit --tag gcr.io/$(PROJECT_ID)/cloud-run-exec-python
