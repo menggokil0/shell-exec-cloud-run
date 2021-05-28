@@ -8,37 +8,15 @@ all:
 deploy:
 	gcloud run deploy cloud-run-exec-python \
 		--image gcr.io/$(PROJECT_ID)/cloud-run-exec-python \
-		--min-instances 1000 \
+		--min-instances 999 \
 		--max-instances 1000 \
 		--cpu 4 \
-		--memory 8Gi \
-		--platform managed \
-		--region us-central1 \
-		--allow-unauthenticated \
-		--timeout 10m
-	gcloud run deploy cloud-run-exec-python-2 \
-		--image gcr.io/$(PROJECT_ID)/cloud-run-exec-python \
-		--min-instances 1000 \
-		--max-instances 1000 \
-		--cpu 4 \
-		--memory 8Gi \
-		--platform managed \
-		--region us-central1 \
-		--allow-unauthenticated \
-		--timeout 10m
-	gcloud run deploy cloud-run-exec-python-3 \
-		--image gcr.io/$(PROJECT_ID)/cloud-run-exec-python \
-		--min-instances 1000 \
-		--max-instances 1000 \
-		--cpu 4 \
-		--memory 8Gi \
+		--memory 2Gi \
 		--platform managed \
 		--region us-central1 \
 		--allow-unauthenticated \
 		--timeout 10m
 	gcloud run services describe cloud-run-exec-python --format='value(status.url)' --region us-central1 --platform managed
-	gcloud run services describe cloud-run-exec-python-2 --format='value(status.url)' --region us-central1 --platform managed
-	gcloud run services describe cloud-run-exec-python-3 --format='value(status.url)' --region us-central1 --platform managed
 
 build:
 	gcloud builds submit --tag gcr.io/$(PROJECT_ID)/cloud-run-exec-python
