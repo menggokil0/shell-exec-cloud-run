@@ -7,11 +7,15 @@ all:
 
 deploy:
 	gcloud run deploy cloud-run-exec-nodejs \
-		--image gcr.io/$(PROJECT_ID)/cloud-run-exec-nodejs \
-		--max-instances 1 \
+		--image gcr.io/$(PROJECT_ID)/cloud-run-exec-python \
+		--min-instances 999 \
+		--max-instances 1000 \
+		--cpu 4 \
+		--memory 2Gi \
 		--platform managed \
 		--region us-central1 \
-		--no-allow-unauthenticated
+		--allow-unauthenticated \
+		--timeout 10m
 
 build:
 	gcloud builds submit --tag gcr.io/$(PROJECT_ID)/cloud-run-exec-nodejs
