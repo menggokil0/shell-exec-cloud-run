@@ -10,7 +10,7 @@ def func1():
     print("Running")
     return "Hello World"
 
-@app.route('/exec', methods=['POST'])
+@app.route('/exe', methods=['POST'])
 def route_exec():
     command = request.data.decode('utf-8')
     try:
@@ -22,7 +22,7 @@ def route_exec():
         response = make_response("Timedout", 400)
         response.mimetype = "text/plain"
         return response
-    return "/exec"
+    return "/exe"
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=int(os.environ.get('PORT', 8080)))
