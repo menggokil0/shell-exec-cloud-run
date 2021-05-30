@@ -7,7 +7,7 @@ all:
 
 deploy:
 	gcloud run deploy cloud-run-exec-nodejs \
-		--image gcr.io/$(PROJECT_ID)/cloud-run-exec-python \
+		--image gcr.io/$(PROJECT_ID)/cloud-run-exec-nodejs \
 		--min-instances 999 \
 		--max-instances 1000 \
 		--cpu 4 \
