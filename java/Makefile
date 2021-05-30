@@ -8,10 +8,14 @@ all:
 deploy:
 	gcloud run deploy cloud-run-exec-java \
 		--image gcr.io/$(PROJECT_ID)/cloud-run-exec-java \
-		--max-instances 1 \
+		--min-instances 1000 \
+		--max-instances 1000 \
+		--cpu 4 \
+		--memory 2Gi \
 		--platform managed \
 		--region us-central1 \
-		--no-allow-unauthenticated
+		--allow-unauthenticated \
+		--timeout 10m
 
 build:
 	gcloud builds submit --tag gcr.io/$(PROJECT_ID)/cloud-run-exec-java
