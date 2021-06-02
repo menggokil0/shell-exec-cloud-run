@@ -14,7 +14,7 @@ RUN mvn package -DskipTests
 # It's important to use OpenJDK 8u191 or above that has container support enabled.
 # https://hub.docker.com/r/adoptopenjdk/openjdk8
 # https://docs.docker.com/develop/develop-images/multistage-build/#use-multi-stage-builds
-FROM adoptopenjdk/openjdk8:jdk8u202-b08-debian
+FROM adoptopenjdk/openjdk8:jdk8u292-b10-debian
 
 # Copy the jar to the production image from the builder stage.
 COPY --from=builder /app/target/*-with-dependencies.jar /app.jar
