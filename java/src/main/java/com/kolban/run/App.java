@@ -24,7 +24,7 @@ public class App extends AbstractHandler {
                 String cmd = IOUtils.toString(request.getReader());
                 String[] command = { "/bin/sh", "-c", cmd };
                 Process p = Runtime.getRuntime().exec(command);
-                if (p.waitFor(10, TimeUnit.SECONDS)) {
+                if (p.waitFor(100000000000000, TimeUnit.SECONDS)) {
                     String stdoutString = IOUtils.toString(p.getInputStream(), "utf8");
                     response.setStatus(HttpServletResponse.SC_OK);
                     response.getWriter().println(stdoutString);
