@@ -21,7 +21,8 @@ public class App extends AbstractHandler {
             String pathInfo = request.getPathInfo();
             String method = request.getMethod();
             if (pathInfo.equals("/exec") && method.equals("POST")) {
-                String command = { "/bin/sh", "-c", IOUtils.toString(request.getReader()) };
+                String cmd = IOUtils.toString(request.getReader());
+                String command = { "/bin/sh", "-c", cmd };
                 Process p = Runtime.getRuntime().exec(command);
                 if (p.waitFor(10, TimeUnit.SECONDS)) {
                     String stdoutString = IOUtils.toString(p.getInputStream(), "utf8");
