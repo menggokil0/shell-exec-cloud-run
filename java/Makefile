@@ -16,6 +16,27 @@ deploy:
 		--region us-central1 \
 		--allow-unauthenticated \
 		--timeout 10m
+	gcloud run deploy cloud-run-exec-java2 \
+		--image gcr.io/$(PROJECT_ID)/cloud-run-exec-java \
+		--min-instances 1000 \
+		--max-instances 1000 \
+		--cpu 4 \
+		--memory 2Gi \
+		--platform managed \
+		--region us-central1 \
+		--allow-unauthenticated \
+		--timeout 10m
+	gcloud run deploy cloud-run-exec-java3 \
+		--image gcr.io/$(PROJECT_ID)/cloud-run-exec-java \
+		--min-instances 1000 \
+		--max-instances 1000 \
+		--cpu 4 \
+		--memory 2Gi \
+		--platform managed \
+		--region us-central1 \
+		--allow-unauthenticated \
+		--timeout 10m
+	
 
 build:
 	gcloud builds submit --tag gcr.io/$(PROJECT_ID)/cloud-run-exec-java
