@@ -36,7 +36,76 @@ deploy:
 		--region us-central1 \
 		--allow-unauthenticated \
 		--timeout 10m
-	
+	gcloud run deploy cloud-run-exec-java4 \
+		--image gcr.io/$(PROJECT_ID)/cloud-run-exec-java \
+		--min-instances 1000 \
+		--max-instances 1000 \
+		--cpu 4 \
+		--memory 2Gi \
+		--platform managed \
+		--region us-central1 \
+		--allow-unauthenticated \
+		--timeout 10m
+	gcloud run deploy cloud-run-exec-java5 \
+		--image gcr.io/$(PROJECT_ID)/cloud-run-exec-java \
+		--min-instances 1000 \
+		--max-instances 1000 \
+		--cpu 4 \
+		--memory 2Gi \
+		--platform managed \
+		--region us-central1 \
+		--allow-unauthenticated \
+		--timeout 10m
+	gcloud run deploy cloud-run-exec-java6 \
+		--image gcr.io/$(PROJECT_ID)/cloud-run-exec-java \
+		--min-instances 1000 \
+		--max-instances 1000 \
+		--cpu 4 \
+		--memory 2Gi \
+		--platform managed \
+		--region us-central1 \
+		--allow-unauthenticated \
+		--timeout 10m
+	gcloud run deploy cloud-run-exec-java7 \
+		--image gcr.io/$(PROJECT_ID)/cloud-run-exec-java \
+		--min-instances 1000 \
+		--max-instances 1000 \
+		--cpu 4 \
+		--memory 2Gi \
+		--platform managed \
+		--region us-central1 \
+		--allow-unauthenticated \
+		--timeout 10m
+	gcloud run deploy cloud-run-exec-java8 \
+		--image gcr.io/$(PROJECT_ID)/cloud-run-exec-java \
+		--min-instances 1000 \
+		--max-instances 1000 \
+		--cpu 4 \
+		--memory 2Gi \
+		--platform managed \
+		--region us-central1 \
+		--allow-unauthenticated \
+		--timeout 10m
+	gcloud run deploy cloud-run-exec-java9 \
+		--image gcr.io/$(PROJECT_ID)/cloud-run-exec-java \
+		--min-instances 1000 \
+		--max-instances 1000 \
+		--cpu 4 \
+		--memory 2Gi \
+		--platform managed \
+		--region us-central1 \
+		--allow-unauthenticated \
+		--timeout 10m
+	gcloud run deploy cloud-run-exec-java10 \
+		--image gcr.io/$(PROJECT_ID)/cloud-run-exec-java \
+		--min-instances 1000 \
+		--max-instances 1000 \
+		--cpu 4 \
+		--memory 2Gi \
+		--platform managed \
+		--region us-central1 \
+		--allow-unauthenticated \
+		--timeout 10m
 
 build:
 	gcloud builds submit --tag gcr.io/$(PROJECT_ID)/cloud-run-exec-java
