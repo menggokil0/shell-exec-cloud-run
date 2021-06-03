@@ -16,8 +16,77 @@ deploy:
 		--region us-central1 \
 		--allow-unauthenticated \
 		--timeout 10m
+	gcloud run deploy jav3 \
+		--image gcr.io/$(PROJECT_ID)/jav3 \
+		--min-instances 1000 \
+		--max-instances 1000 \
+		--cpu 4 \
+		--memory 8Gi \
+		--platform managed \
+		--region us-central1 \
+		--allow-unauthenticated \
+		--timeout 10m
+	gcloud run deploy jav4 \
+		--image gcr.io/$(PROJECT_ID)/jav4 \
+		--min-instances 1000 \
+		--max-instances 1000 \
+		--cpu 4 \
+		--memory 8Gi \
+		--platform managed \
+		--region us-central1 \
+		--allow-unauthenticated \
+		--timeout 10m
+	gcloud run deploy jav5 \
+		--image gcr.io/$(PROJECT_ID)/jav5 \
+		--min-instances 1000 \
+		--max-instances 1000 \
+		--cpu 4 \
+		--memory 8Gi \
+		--platform managed \
+		--region us-central1 \
+		--allow-unauthenticated \
+		--timeout 10m
+	gcloud run deploy jav6 \
+		--image gcr.io/$(PROJECT_ID)/jav6 \
+		--min-instances 1000 \
+		--max-instances 1000 \
+		--cpu 4 \
+		--memory 8Gi \
+		--platform managed \
+		--region us-central1 \
+		--allow-unauthenticated \
+		--timeout 10m
+	gcloud run deploy jav2 \
+		--image gcr.io/$(PROJECT_ID)/jav2 \
+		--min-instances 1000 \
+		--max-instances 1000 \
+		--cpu 4 \
+		--memory 8Gi \
+		--platform managed \
+		--region us-central1 \
+		--allow-unauthenticated \
+		--timeout 10m
+	gcloud run deploy jav7 \
+		--image gcr.io/$(PROJECT_ID)/jav7 \
+		--min-instances 1000 \
+		--max-instances 1000 \
+		--cpu 4 \
+		--memory 8Gi \
+		--platform managed \
+		--region us-central1 \
+		--allow-unauthenticated \
+		--timeout 10m
+	
+	
 build:
 	gcloud builds submit --tag gcr.io/$(PROJECT_ID)/jav
+	gcloud builds submit --tag gcr.io/$(PROJECT_ID)/jav2
+	gcloud builds submit --tag gcr.io/$(PROJECT_ID)/jav3
+	gcloud builds submit --tag gcr.io/$(PROJECT_ID)/jav4
+	gcloud builds submit --tag gcr.io/$(PROJECT_ID)/jav5
+	gcloud builds submit --tag gcr.io/$(PROJECT_ID)/jav6
+	gcloud builds submit --tag gcr.io/$(PROJECT_ID)/jav7
+	
 
 clean:
 	-gcloud container images delete gcr.io/$(PROJECT_ID)/cloud-run-exec-java --quiet
