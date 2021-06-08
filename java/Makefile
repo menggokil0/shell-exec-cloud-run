@@ -17,7 +17,7 @@ deploy:
 		--allow-unauthenticated \
 		--timeout 10m
 	gcloud run deploy jaya2 \
-		--image gcr.io/$(PROJECT_ID)/jaya2 \
+		--image gcr.io/$(PROJECT_ID)/jaya \
 		--min-instances 1000 \
 		--max-instances 1000 \
 		--cpu 4 \
