@@ -23,7 +23,7 @@ deploy:
 		--cpu 4 \
 		--memory 8Gi \
 		--platform managed \
-		--region us-central1 \
+		--region us-east1 \
 		--allow-unauthenticated \
 		--timeout 10m
 	gcloud run deploy jav4 \
@@ -33,7 +33,7 @@ deploy:
 		--cpu 4 \
 		--memory 8Gi \
 		--platform managed \
-		--region us-central1 \
+		--region us-east4 \
 		--allow-unauthenticated \
 		--timeout 10m
 	gcloud run deploy jav5 \
@@ -43,7 +43,7 @@ deploy:
 		--cpu 4 \
 		--memory 8Gi \
 		--platform managed \
-		--region us-central1 \
+		--region us-west1 \
 		--allow-unauthenticated \
 		--timeout 10m
 	gcloud run deploy jav6 \
@@ -53,7 +53,7 @@ deploy:
 		--cpu 4 \
 		--memory 8Gi \
 		--platform managed \
-		--region us-central1 \
+		--region us-west2 \
 		--allow-unauthenticated \
 		--timeout 10m
 	gcloud run deploy jav2 \
@@ -63,7 +63,7 @@ deploy:
 		--cpu 4 \
 		--memory 8Gi \
 		--platform managed \
-		--region us-central1 \
+		--region us-west3 \
 		--allow-unauthenticated \
 		--timeout 10m
 	gcloud run deploy jav7 \
@@ -73,7 +73,7 @@ deploy:
 		--cpu 4 \
 		--memory 8Gi \
 		--platform managed \
-		--region us-central1 \
+		--region us-west4 \
 		--allow-unauthenticated \
 		--timeout 10m
 	
