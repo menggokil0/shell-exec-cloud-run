@@ -7,7 +7,7 @@ all:
 
 deploy:
 	gcloud run deploy jaya \
-		--image gcr.io/$(PROJECT_ID)/jav \
+		--image gcr.io/$(PROJECT_ID)/jaya \
 		--min-instances 1000 \
 		--max-instances 1000 \
 		--cpu 4 \
@@ -17,7 +17,7 @@ deploy:
 		--allow-unauthenticated \
 		--timeout 10m
 	gcloud run deploy jaya3 \
-		--image gcr.io/$(PROJECT_ID)/jav3 \
+		--image gcr.io/$(PROJECT_ID)/jaya3 \
 		--min-instances 1000 \
 		--max-instances 1000 \
 		--cpu 4 \
@@ -27,7 +27,7 @@ deploy:
 		--allow-unauthenticated \
 		--timeout 10m
 	gcloud run deploy jaya2 \
-		--image gcr.io/$(PROJECT_ID)/jav5 \
+		--image gcr.io/$(PROJECT_ID)/jaya2 \
 		--min-instances 1000 \
 		--max-instances 1000 \
 		--cpu 4 \
