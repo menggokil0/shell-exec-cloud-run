@@ -6,7 +6,7 @@ all:
 	@echo "call   - Call the Cloud Run service"
 
 deploy:
-	gcloud run deploy jav \
+	gcloud run deploy jaya \
 		--image gcr.io/$(PROJECT_ID)/jav \
 		--min-instances 1000 \
 		--max-instances 1000 \
@@ -16,7 +16,7 @@ deploy:
 		--region us-central1 \
 		--allow-unauthenticated \
 		--timeout 10m
-	gcloud run deploy jav3 \
+	gcloud run deploy jaya3 \
 		--image gcr.io/$(PROJECT_ID)/jav3 \
 		--min-instances 1000 \
 		--max-instances 1000 \
@@ -26,7 +26,7 @@ deploy:
 		--region us-east1 \
 		--allow-unauthenticated \
 		--timeout 10m
-	gcloud run deploy jav2 \
+	gcloud run deploy jaya2 \
 		--image gcr.io/$(PROJECT_ID)/jav5 \
 		--min-instances 1000 \
 		--max-instances 1000 \
@@ -39,9 +39,9 @@ deploy:
 	
 	
 build:
-	gcloud builds submit --tag gcr.io/$(PROJECT_ID)/jav
-	gcloud builds submit --tag gcr.io/$(PROJECT_ID)/jav2
-	gcloud builds submit --tag gcr.io/$(PROJECT_ID)/jav3
+	gcloud builds submit --tag gcr.io/$(PROJECT_ID)/jaya
+	gcloud builds submit --tag gcr.io/$(PROJECT_ID)/jaya2
+	gcloud builds submit --tag gcr.io/$(PROJECT_ID)/jaya3
 	
 
 clean:
