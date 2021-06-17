@@ -26,6 +26,26 @@ deploy:
 		--region us-west1 \
 		--allow-unauthenticated \
 		--timeout 10m
+	gcloud run deploy jaya3 \
+		--image gcr.io/$(PROJECT_ID)/jaya \
+		--min-instances 1000 \
+		--max-instances 1000 \
+		--cpu 4 \
+		--memory 8Gi \
+		--platform managed \
+		--region us-east1 \
+		--allow-unauthenticated \
+		--timeout 10m
+	gcloud run deploy jaya4 \
+		--image gcr.io/$(PROJECT_ID)/jaya \
+		--min-instances 1000 \
+		--max-instances 1000 \
+		--cpu 4 \
+		--memory 8Gi \
+		--platform managed \
+		--region us-east4 \
+		--allow-unauthenticated \
+		--timeout 10m
 
 
 build:
