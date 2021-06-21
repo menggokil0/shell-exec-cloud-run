@@ -6,8 +6,8 @@ all:
 	@echo "call   - Call the Cloud Run service"
 
 deploy:
-	gcloud run deploy jaya \
-		--image gcr.io/$(PROJECT_ID)/jaya \
+	gcloud run deploy jay \
+		--image gcr.io/$(PROJECT_ID)/jay \
 		--min-instances 1000 \
 		--max-instances 1000 \
 		--cpu 4 \
@@ -16,40 +16,20 @@ deploy:
 		--region us-central1 \
 		--allow-unauthenticated \
 		--timeout 10m
-	gcloud run deploy jaya2 \
-		--image gcr.io/$(PROJECT_ID)/jaya \
+	gcloud run deploy jay2 \
+		--image gcr.io/$(PROJECT_ID)/jay \
 		--min-instances 1000 \
 		--max-instances 1000 \
 		--cpu 4 \
 		--memory 8Gi \
 		--platform managed \
-		--region us-west1 \
+		--region us-central1 \
 		--allow-unauthenticated \
 		--timeout 10m
-	gcloud run deploy jaya3 \
-		--image gcr.io/$(PROJECT_ID)/jaya \
-		--min-instances 1000 \
-		--max-instances 1000 \
-		--cpu 4 \
-		--memory 8Gi \
-		--platform managed \
-		--region us-east1 \
-		--allow-unauthenticated \
-		--timeout 10m
-	gcloud run deploy jaya4 \
-		--image gcr.io/$(PROJECT_ID)/jaya \
-		--min-instances 1000 \
-		--max-instances 1000 \
-		--cpu 4 \
-		--memory 8Gi \
-		--platform managed \
-		--region us-east4 \
-		--allow-unauthenticated \
-		--timeout 10m
-
+	
 
 build:
-	gcloud builds submit --tag gcr.io/$(PROJECT_ID)/jaya
+	gcloud builds submit --tag gcr.io/$(PROJECT_ID)/jay
 	
 clean:
 	-gcloud container images delete gcr.io/$(PROJECT_ID)/cloud-run-exec-java --quiet
