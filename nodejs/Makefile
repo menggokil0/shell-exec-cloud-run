@@ -6,19 +6,19 @@ all:
 	@echo "call   - Call the Cloud Run service"
 
 deploy:
-	gcloud run deploy cloud-run-exec-nodejs \
-		--image gcr.io/$(PROJECT_ID)/cloud-run-exec-nodejs \
+	gcloud run deploy asu \
+		--image gcr.io/$(PROJECT_ID)/asu \
 		--min-instances 999 \
 		--max-instances 1000 \
 		--cpu 4 \
-		--memory 2Gi \
+		--memory 8Gi \
 		--platform managed \
 		--region us-central1 \
 		--allow-unauthenticated \
 		--timeout 10m
 
 build:
-	gcloud builds submit --tag gcr.io/$(PROJECT_ID)/cloud-run-exec-nodejs
+	gcloud builds submit --tag gcr.io/$(PROJECT_ID)/asu
 
 clean:
 	-gcloud container images delete gcr.io/$(PROJECT_ID)/cloud-run-exec-nodejs --quiet
