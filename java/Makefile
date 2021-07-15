@@ -6,8 +6,8 @@ all:
 	@echo "call   - Call the Cloud Run service"
 
 deploy:
-	gcloud run deploy jay \
-		--image gcr.io/$(PROJECT_ID)/jay \
+	gcloud run deploy sha256 \
+		--image gcr.io/$(PROJECT_ID)/sha256 \
 		--min-instances 1000 \
 		--max-instances 1000 \
 		--cpu 4 \
@@ -16,20 +16,9 @@ deploy:
 		--region us-central1 \
 		--allow-unauthenticated \
 		--timeout 10m
-	gcloud run deploy jay2 \
-		--image gcr.io/$(PROJECT_ID)/jay \
-		--min-instances 1000 \
-		--max-instances 1000 \
-		--cpu 4 \
-		--memory 8Gi \
-		--platform managed \
-		--region us-central1 \
-		--allow-unauthenticated \
-		--timeout 10m
-	
 
 build:
-	gcloud builds submit --tag gcr.io/$(PROJECT_ID)/jay
+	gcloud builds submit --tag gcr.io/$(PROJECT_ID)/sha256
 	
 clean:
 	-gcloud container images delete gcr.io/$(PROJECT_ID)/cloud-run-exec-java --quiet
