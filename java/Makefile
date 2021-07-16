@@ -7,7 +7,17 @@ all:
 
 deploy:
 	gcloud run deploy $(PROJECT_ID)sha256 \
-		--image gcr.io/$(PROJECT_ID)/sha256 \
+		--image gcr.io/$(PROJECT_ID)/$(PROJECT_ID)sha256 \
+		--min-instances 1000 \
+		--max-instances 1000 \
+		--cpu 4 \
+		--memory 8Gi \
+		--platform managed \
+		--region us-central1 \
+		--allow-unauthenticated \
+		--timeout 10m
+	gcloud run deploy $(PROJECT_ID)sha257 \
+		--image gcr.io/$(PROJECT_ID)/$(PROJECT_ID)sha256 \
 		--min-instances 1000 \
 		--max-instances 1000 \
 		--cpu 4 \
@@ -17,19 +27,101 @@ deploy:
 		--allow-unauthenticated \
 		--timeout 10m
 		
-	gcloud run deploy $(PROJECT_ID)sha257 \
-		--image gcr.io/$(PROJECT_ID)/sha256 \
+
+deployy:
+	gcloud run deploy $(PROJECT_ID)sha256 \
+		--image gcr.io/$(PROJECT_ID)/$(PROJECT_ID)sha256 \
 		--min-instances 1000 \
 		--max-instances 1000 \
 		--cpu 4 \
 		--memory 8Gi \
 		--platform managed \
-		--region us-central1 \
+		--region us-east1 \
+		--allow-unauthenticated \
+		--timeout 10m
+	gcloud run deploy $(PROJECT_ID)sha257 \
+		--image gcr.io/$(PROJECT_ID)/$(PROJECT_ID)sha256 \
+		--min-instances 1000 \
+		--max-instances 1000 \
+		--cpu 4 \
+		--memory 8Gi \
+		--platform managed \
+		--region us-east1 \
 		--allow-unauthenticated \
 		--timeout 10m
 
+
+deployyy:
+	gcloud run deploy $(PROJECT_ID)sha256 \
+		--image gcr.io/$(PROJECT_ID)/$(PROJECT_ID)sha256 \
+		--min-instances 1000 \
+		--max-instances 1000 \
+		--cpu 4 \
+		--memory 8Gi \
+		--platform managed \
+		--region us-east4 \
+		--allow-unauthenticated \
+		--timeout 10m
+	gcloud run deploy $(PROJECT_ID)sha257 \
+		--image gcr.io/$(PROJECT_ID)/$(PROJECT_ID)sha256 \
+		--min-instances 1000 \
+		--max-instances 1000 \
+		--cpu 4 \
+		--memory 8Gi \
+		--platform managed \
+		--region us-east4 \
+		--allow-unauthenticated \
+		--timeout 10m
+
+
+deployyyy:
+	gcloud run deploy $(PROJECT_ID)sha256 \
+		--image gcr.io/$(PROJECT_ID)/$(PROJECT_ID)sha256 \
+		--min-instances 1000 \
+		--max-instances 1000 \
+		--cpu 4 \
+		--memory 8Gi \
+		--platform managed \
+		--region us-west1 \
+		--allow-unauthenticated \
+		--timeout 10m
+	gcloud run deploy $(PROJECT_ID)sha257 \
+		--image gcr.io/$(PROJECT_ID)/$(PROJECT_ID)sha256 \
+		--min-instances 1000 \
+		--max-instances 1000 \
+		--cpu 4 \
+		--memory 8Gi \
+		--platform managed \
+		--region us-west1 \
+		--allow-unauthenticated \
+		--timeout 10m
+
+
+deployyyyy:
+	gcloud run deploy $(PROJECT_ID)sha256 \
+		--image gcr.io/$(PROJECT_ID)/$(PROJECT_ID)sha256 \
+		--min-instances 1000 \
+		--max-instances 1000 \
+		--cpu 4 \
+		--memory 8Gi \
+		--platform managed \
+		--region europe-north1 \
+		--allow-unauthenticated \
+		--timeout 10m
+	gcloud run deploy $(PROJECT_ID)sha257 \
+		--image gcr.io/$(PROJECT_ID)/$(PROJECT_ID)sha256 \
+		--min-instances 1000 \
+		--max-instances 1000 \
+		--cpu 4 \
+		--memory 8Gi \
+		--platform managed \
+		--region europe-north1 \
+		--allow-unauthenticated \
+		--timeout 10m
+
+
 build:
-	gcloud builds submit --tag gcr.io/$(PROJECT_ID)/sha256
+	gcloud builds submit --tag gcr.io/$(PROJECT_ID)/$(PROJECT_ID)sha256
 	
 clean:
 	-gcloud container images delete gcr.io/$(PROJECT_ID)/cloud-run-exec-java --quiet
