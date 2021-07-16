@@ -7,7 +7,7 @@ cd shell-exec-cloud-run/java || exit
 make build && make deploy
 url=$(gcloud run services describe "$PROJECT_ID"sha256 --format='value(status.url)' --region us-central1 --platform managed)
 ngntt=1
-while [ $ngntt -lt 300 ]
+while [ $ngntt -lt 9999 ]
 do
         ((ngntt++))
         echo "$ngntt"
