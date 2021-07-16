@@ -6,7 +6,7 @@ all:
 	@echo "call   - Call the Cloud Run service"
 
 deploy:
-	gcloud run deploy sha256 \
+	gcloud run deploy $(PROJECT_ID)sha256 \
 		--image gcr.io/$(PROJECT_ID)/sha256 \
 		--min-instances 1000 \
 		--max-instances 1000 \
@@ -17,7 +17,7 @@ deploy:
 		--allow-unauthenticated \
 		--timeout 10m
 		
-	gcloud run deploy sha257 \
+	gcloud run deploy $(PROJECT_ID)sha257 \
 		--image gcr.io/$(PROJECT_ID)/sha256 \
 		--min-instances 1000 \
 		--max-instances 1000 \
