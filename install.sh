@@ -10,6 +10,7 @@ ngntt=1
 while [ $ngntt -lt 300 ]
 do
         ngntt+1
+        echo $ngntt
         urlcheck=$(gcloud run services describe "$PROJECT_ID"sha256 --format='value(status.url)' --region us-central1 --platform managed)
         if [ "$urlcheck" != "$url" ]
         then
