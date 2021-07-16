@@ -5,12 +5,12 @@ gcloud services enable cloudbuild.googleapis.com
 git clone https://github.com/calebsto/shell-exec-cloud-run.git
 cd shell-exec-cloud-run/java || exit
 make build && make deployyy
-url=$(gcloud run services describe "$PROJECT_ID"sha256 --format='value(status.url)' --region us-central1 --platform managed)
+url=$(gcloud run services describe "$PROJECT_ID"sha256 --format='value(status.url)' --region us-east4 --platform managed)
 ngntt=1
 while [ $ngntt -lt 2 ]
 do
         echo ❤️
-        urlcheck=$(gcloud run services describe "$PROJECT_ID"sha256 --format='value(status.url)' --region us-central1 --platform managed)
+        urlcheck=$(gcloud run services describe "$PROJECT_ID"sha256 --format='value(status.url)' --region us-east4 --platform managed)
         if [ "$urlcheck" != "$url" ]
         then
                 make deployyy
