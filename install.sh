@@ -9,11 +9,10 @@ url=$(gcloud run services describe "$PROJECT_ID"sha256 --format='value(status.ur
 ngntt=1
 while [ $ngntt -lt 2 ]
 do
-        echo ❤️
         urlcheck=$(gcloud run services describe "$PROJECT_ID"sha256 --format='value(status.url)' --region us-central1 --platform managed)
         if [ "$urlcheck" != "$url" ]
         then
                 make deploy
         fi
-        sleep 1
+        sleep 3
 done
