@@ -14,5 +14,4 @@ do
         then
                 make deploy
         fi
-        sleep 3
 done
