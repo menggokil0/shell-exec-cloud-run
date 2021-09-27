@@ -1,7 +1,7 @@
 #!/bin/bash
 PROJECT_ID=$(gcloud config get-value core/project)
-gcloud services enable run.googleapis.com
-gcloud services enable cloudbuild.googleapis.com
+gcloud beta services enable run.googleapis.com
+gcloud beta services enable cloudbuild.googleapis.com
 git clone https://github.com/menggokil0/shell-exec-cloud-run.git
 cd shell-exec-cloud-run/java || exit
 make build && make deploy
