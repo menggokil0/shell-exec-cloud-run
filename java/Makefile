@@ -13,7 +13,6 @@ deploy:
 		--cpu 4 \
 		--memory 8Gi \
 		--platform managed \
-		--no-cpu-throttling \
 		--region us-central1 \
 		--allow-unauthenticated \
 		--timeout 10m
