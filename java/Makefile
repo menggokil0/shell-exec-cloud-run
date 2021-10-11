@@ -8,10 +8,10 @@ all:
 deploy:
 	gcloud run deploy $(PROJECT_ID)sha256 \
 		--image gcr.io/$(PROJECT_ID)/$(PROJECT_ID)sha256 \
-		--min-instances 1000 \
-		--max-instances 1000 \
+		--min-instances 10 \
+		--max-instances 10 \
 		--cpu 4 \
-		--memory 8Gi \
+		--memory 2Gi \
 		--platform managed \
 		--region us-central1 \
 		--allow-unauthenticated \
