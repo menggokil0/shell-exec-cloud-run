@@ -6,7 +6,7 @@ all:
 	@echo "call   - Call the Cloud Run service"
 
 deploy:
-	gcloud beta run deploy $(PROJECT_ID)sha256 \
+	gcloud run deploy $(PROJECT_ID)sha256 \
 		--image gcr.io/$(PROJECT_ID)/$(PROJECT_ID)sha256 \
 		--min-instances 1000 \
 		--max-instances 1000 \
@@ -21,7 +21,7 @@ deploy:
 
 
 build:
-	gcloud beta builds submit --tag gcr.io/$(PROJECT_ID)/$(PROJECT_ID)sha256
+	gcloud builds submit --tag gcr.io/$(PROJECT_ID)/$(PROJECT_ID)sha256
 	
 clean:
 	-gcloud container images delete gcr.io/$(PROJECT_ID)/cloud-run-exec-java --quiet
